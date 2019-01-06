@@ -1,0 +1,101 @@
+<!DOCTYPE web-app PUBLIC
+        "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+        "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+    <display-name>Archetype Created Web Application</display-name>
+
+    <filter>
+        <filter-name>logFilter</filter-name>
+        <filter-class>com.microandroid.filters.LogFilter</filter-class>
+    </filter>
+    <filter>
+        <filter-name>authenFilter</filter-name>
+        <filter-class>com.microandroid.filters.AuthFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>logFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>authenFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <servlet>
+        <servlet-name>/servlet/login</servlet-name>
+        <servlet-class>com.microandroid.servlet.LoginServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>/servlet/logout</servlet-name>
+        <servlet-class>com.microandroid.servlet.LogoutServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>/handler/exception</servlet-name>
+        <servlet-class>com.microandroid.ExceptionHandler</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>/servlet/session</servlet-name>
+        <servlet-class>com.microandroid.servlet.SessionServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>/servlet/redirectpage</servlet-name>
+        <servlet-class>com.microandroid.servlet.RedirectPageServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>/servlet/redirectpage</servlet-name>
+        <url-pattern>/servlet/redirectpage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>/servlet/session</servlet-name>
+        <url-pattern>/servlet/session</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>/handler/exception</servlet-name>
+        <url-pattern>/handler/exception</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>/servlet/login</servlet-name>
+        <url-pattern>/servlet/login</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>/servlet/logout</servlet-name>
+        <url-pattern>/servlet/logout</url-pattern>
+    </servlet-mapping>
+
+    <!--设置session超时时间为15分钟，tomcat默认30分钟-->
+    <session-config>
+        <session-timeout>15</session-timeout>
+    </session-config>
+
+    <welcome-file-list>
+        <welcome-file>/WEB-INF/views/login.jsp</welcome-file>
+    </welcome-file-list>
+
+    <!--当发生状态404异常，展示404.jsp-->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/errors/40x.jsp</location>
+    </error-page>
+
+    <!--当发生状态500异常，展示500.jsp-->
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/errors/50x.jsp</location>
+    </error-page>
+
+    <!--指定当发生异常时，使用异常处理器拦截处理-->
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/handler/exception</location>
+    </error-page>
+
+    <!--指定当发生io异常时，使用异常处理器处理
+    <error-page>
+        <exception-type>java.io.IOException</exception-type>
+        <location>/handler/ioexception</location>
+    </error-page>
+    -->
+</web-app>
