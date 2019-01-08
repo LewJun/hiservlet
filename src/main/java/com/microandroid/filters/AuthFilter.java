@@ -4,6 +4,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.servlet.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 /**
@@ -22,9 +25,22 @@ public class AuthFilter implements Filter {
         LOGGER.info("doFilter");
 
         LOGGER.info(" before ");
-        filterChain.doFilter(servletRequest, servletResponse);
-        LOGGER.info(" after ");
+        HttpServletRequest req = (HttpServletRequest) servletRequest;
+        HttpServletResponse resp = (HttpServletResponse) servletResponse;
 
+        if (req.getServletPath().equals("/login")) {
+            filterChain.doFilter(req, resp);
+        } else {
+            HttpSession session = req.getSession(true);
+            Object loginEmp = session.getAttribute("loginEmp");
+            if (loginEmp != null) {
+                filterChain.doFilter(req, resp);
+            } else {
+                req.getRequestDispatcher("/").forward(req, resp);
+                return;
+            }
+        }
+        LOGGER.info(" after ");
     }
 
     @Override

@@ -10,5 +10,7 @@
 <body>
 <h2>Welcome!</h2>
 <%=new Date()%>
+
+<a href="logout">Logout</a>
 </body>
 </html>

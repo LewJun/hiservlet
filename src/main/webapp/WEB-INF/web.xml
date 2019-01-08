@@ -24,45 +24,45 @@
     </filter-mapping>
 
     <servlet>
-        <servlet-name>/servlet/login</servlet-name>
+        <servlet-name>login</servlet-name>
         <servlet-class>com.microandroid.servlet.LoginServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>/servlet/logout</servlet-name>
+        <servlet-name>logout</servlet-name>
         <servlet-class>com.microandroid.servlet.LogoutServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>/handler/exception</servlet-name>
+        <servlet-name>handler/exception</servlet-name>
         <servlet-class>com.microandroid.ExceptionHandler</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>/servlet/session</servlet-name>
+        <servlet-name>session</servlet-name>
         <servlet-class>com.microandroid.servlet.SessionServlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>/servlet/redirectpage</servlet-name>
+        <servlet-name>redirectpage</servlet-name>
         <servlet-class>com.microandroid.servlet.RedirectPageServlet</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>/servlet/redirectpage</servlet-name>
-        <url-pattern>/servlet/redirectpage</url-pattern>
+        <servlet-name>redirectpage</servlet-name>
+        <url-pattern>/redirectpage</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>/servlet/session</servlet-name>
-        <url-pattern>/servlet/session</url-pattern>
+        <servlet-name>session</servlet-name>
+        <url-pattern>/session</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>/handler/exception</servlet-name>
+        <servlet-name>handler/exception</servlet-name>
         <url-pattern>/handler/exception</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>/servlet/login</servlet-name>
-        <url-pattern>/servlet/login</url-pattern>
+        <servlet-name>login</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>/servlet/logout</servlet-name>
-        <url-pattern>/servlet/logout</url-pattern>
+        <servlet-name>logout</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
     <!--设置session超时时间为15分钟，tomcat默认30分钟-->
@@ -71,7 +71,7 @@
     </session-config>
 
     <welcome-file-list>
-        <welcome-file>/WEB-INF/views/login.jsp</welcome-file>
+        <welcome-file>login.jsp</welcome-file>
     </welcome-file-list>
 
     <!--当发生状态404异常，展示404.jsp-->
