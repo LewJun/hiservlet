@@ -9,6 +9,6 @@
 <body>
 
 <h2>Index!</h2>
-<a href="logout">Logout</a>
+<a href="logoutServlet">Logout</a>
 </body>
 </html>

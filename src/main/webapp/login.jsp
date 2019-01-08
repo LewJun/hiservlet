@@ -9,7 +9,7 @@
 <body>
 
 <h2>Login!</h2>
-<form action="login" method="post">
+<form action="loginServlet" method="post">
     <input name="username" placeholder="username"/>
     <input name="password" placeholder="password" type="password"/>
     <input type="submit"/>

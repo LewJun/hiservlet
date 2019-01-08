@@ -10,7 +10,9 @@
 <body>
 <h2>Welcome!</h2>
 <%=new Date()%>
-
-<a href="logout">Logout</a>
+<br/>
+<a href="logoutServlet">Logout</a>
+<br/>
+<a href="redirectpageServlet">redirectpageServlet</a>
 </body>
 </html>

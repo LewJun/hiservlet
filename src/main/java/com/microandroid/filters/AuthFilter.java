@@ -28,7 +28,7 @@ public class AuthFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
 
-        if (req.getServletPath().equals("/login")) {
+        if (req.getServletPath().equals("/loginServlet")) {
             filterChain.doFilter(req, resp);
         } else {
             HttpSession session = req.getSession(true);

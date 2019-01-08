@@ -75,8 +75,6 @@ public class LoginServlet extends HttpServlet {
 
         String username = req.getParameter("username");
         String password = req.getParameter("password");
-        System.out.println("username=" + username);
-        System.out.println("password=" + password);
 
         String sql = "select empno, ename, job from emp where ename=?";
         Connection conn = null;
